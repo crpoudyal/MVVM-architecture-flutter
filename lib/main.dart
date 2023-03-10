@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_architecture_flutter/utils/routes/routes.dart';
+import 'package:mvvm_architecture_flutter/utils/routes/routes_name.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'MVVM architecture flutter',
+      initialRoute: RoutesName.login,
+      onGenerateRoute: Routes.generateRoute,
     );
   }
 }
