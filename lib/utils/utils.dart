@@ -16,9 +16,11 @@ class Utils {
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         padding: const EdgeInsets.all(20),
         message: message,
+        borderRadius: BorderRadius.circular(10),
         backgroundColor: Colors.red,
         reverseAnimationCurve: Curves.easeOut,
         positionOffset: 20,
+        duration: const Duration(seconds: 2),
         icon: const Icon(
           Icons.error,
           size: 28,

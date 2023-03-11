@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'MVVM architecture flutter',
+      debugShowCheckedModeBanner: false,
       initialRoute: RoutesName.login,
       onGenerateRoute: Routes.generateRoute,
     );
