@@ -27,4 +27,10 @@ class Utils {
       )..show(context),
     );
   }
+
+  static fieldFocusChange(
+      BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
+    currentFocus.unfocus();
+    FocusScope.of(context).requestFocus(nextFocus);
+  }
 }
