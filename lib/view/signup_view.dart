@@ -5,14 +5,14 @@ import 'package:mvvm_architecture_flutter/utils/utils.dart';
 import 'package:mvvm_architecture_flutter/view_model/auth_view_model.dart';
 import 'package:provider/provider.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+class SignupView extends StatefulWidget {
+  const SignupView({Key? key}) : super(key: key);
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<SignupView> createState() => _SignupViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _SignupViewState extends State<SignupView> {
   final ValueNotifier<bool> _obscurePassword = ValueNotifier<bool>(true);
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -83,7 +83,7 @@ class _LoginViewState extends State<LoginView> {
                 height: height * 0.1,
               ),
               RoundButton(
-                title: 'Login',
+                title: 'SignUp',
                 loading: authViewModel.loading,
                 onPress: () {
                   if (_emailController.text.isEmpty) {
@@ -108,8 +108,8 @@ class _LoginViewState extends State<LoginView> {
                 height: height * 0.1,
               ),
               InkWell(
-                  onTap: () => Navigator.pushNamed(context, RoutesName.signup),
-                  child: const Text("Doesn't have an account ? Sign up")),
+                  onTap: () => Navigator.pushNamed(context, RoutesName.login),
+                  child: const Text("Already have an account ? Log In")),
             ],
           ),
         ),

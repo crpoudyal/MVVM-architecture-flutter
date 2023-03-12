@@ -14,7 +14,7 @@ class AuthRepo {
     }
   }
 
-  Future<dynamic> registerApi(dynamic data) async {
+  Future<dynamic> signupApi(dynamic data) async {
     try {
       dynamic response =
           _apiService.getPostApiResponse(AppUrl.registerApiUrl, data);
