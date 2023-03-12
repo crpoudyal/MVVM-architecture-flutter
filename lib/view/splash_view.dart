@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_architecture_flutter/res/app_colors.dart';
 import 'package:mvvm_architecture_flutter/res/components/round_button.dart';
 import 'package:mvvm_architecture_flutter/utils/routes/routes_name.dart';
 
@@ -13,8 +14,10 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.blackColor,
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             RoundButton(
               title: "Log In",
