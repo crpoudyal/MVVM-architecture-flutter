@@ -11,8 +11,14 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: Text("Home Screen"),
-    ));
+        appBar: AppBar(
+          title: const Text("MVVM Architecture"),
+          actions: [
+            IconButton(onPressed: () {}, icon: const Icon(Icons.logout)),
+          ],
+        ),
+        body: const Center(
+          child: Text("Home Screen"),
+        ));
   }
 }
