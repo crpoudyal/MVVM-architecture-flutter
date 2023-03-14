@@ -6,7 +6,7 @@ import 'package:mvvm_architecture_flutter/view_model/user_view_model.dart';
 class SplashServices {
   checkAuthentication(BuildContext context) async {
     getUserData().then((value) async {
-      if (value.token == null || value.token == '') {
+      if (value.token == 'null' || value.token == '') {
         await Future.delayed(const Duration(seconds: 4));
         Navigator.pushReplacementNamed(context, RoutesName.login);
       } else {
