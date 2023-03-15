@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mvvm_architecture_flutter/model/user_model.dart';
 import 'package:mvvm_architecture_flutter/utils/routes/routes_name.dart';
@@ -14,7 +15,9 @@ class SplashServices {
         Navigator.pushReplacementNamed(context, RoutesName.home);
       }
     }).onError((error, stackTrace) {
-      print("Error: $error");
+      if (kDebugMode) {
+        print("Error: $error");
+      }
     });
   }
 

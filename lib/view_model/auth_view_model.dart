@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:mvvm_architecture_flutter/model/user_model.dart';
 import 'package:mvvm_architecture_flutter/repository/auth_repo.dart';
 import 'package:mvvm_architecture_flutter/utils/routes/routes_name.dart';
 import 'package:mvvm_architecture_flutter/utils/utils.dart';
+import 'package:mvvm_architecture_flutter/view_model/user_view_model.dart';
+import 'package:provider/provider.dart';
 
 class AuthViewModel with ChangeNotifier {
   final _myRepo = AuthRepo();
@@ -24,18 +28,28 @@ class AuthViewModel with ChangeNotifier {
 
   Future<void> loginApi(dynamic data, BuildContext context) async {
     setLoading(true);
+
     _myRepo.loginApi(data).then((value) {
       setLoading(false);
-
+      final userPreference = Provider.of<UserViewModel>(context, listen: false);
+      userPreference.saveUserData(
+        UserModel(
+          token: value['token'].toString(),
+        ),
+      );
       Utils.flashBarSuccessMessage(
           "Login success ${value.toString()}", context);
       Navigator.pushNamed(context, RoutesName.home);
-      print(value.toString());
+      if (kDebugMode) {
+        print(value.toString());
+      }
     }).onError((error, stackTrace) {
       setLoading(false);
 
       Utils.flashBarErrorMessage(error.toString(), context);
-      print(error.toString());
+      if (kDebugMode) {
+        print(error.toString());
+      }
     });
   }
 
@@ -47,12 +61,16 @@ class AuthViewModel with ChangeNotifier {
       Utils.flashBarSuccessMessage(
           "Register success ${value.toString()}", context);
       Navigator.pushNamed(context, RoutesName.home);
-      print(value.toString());
+      if (kDebugMode) {
+        print(value.toString());
+      }
     }).onError((error, stackTrace) {
       setSignupLoading(false);
 
       Utils.flashBarErrorMessage(error.toString(), context);
-      print(error.toString());
+      if (kDebugMode) {
+        print(error.toString());
+      }
     });
   }
 }
